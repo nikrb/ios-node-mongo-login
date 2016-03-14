@@ -110,6 +110,7 @@
                                         <state key="normal" title="Forgot Password?"/>
                                         <connections>
                                             <action selector="forgotPasswordClick:" destination="lm5-Ec-ga4" eventType="touchUpInside" id="f83-3w-3lo"/>
+                                            <segue destination="eC6-l0-NN2" kind="show" identifier="ShowPasswordResetScene" id="UCz-oa-0Zj"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXD-p4-gJm">
@@ -263,6 +264,56 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D90-W8-0gB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2661" y="130"/>
+        </scene>
+        <!--Reset Password-->
+        <scene sceneID="E95-wE-1dx">
+            <objects>
+                <viewController title="Reset Password" id="eC6-l0-NN2" customClass="ResetPasswordViewController" customModule="LoginNode" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HRW-gx-9pc"/>
+                        <viewControllerLayoutGuide type="bottom" id="leA-Mq-U1G"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZJj-5d-a8m">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGq-MN-y6p">
+                                <rect key="frame" x="20" y="76" width="41" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JNC-KT-UpY">
+                                <rect key="frame" x="69" y="72" width="511" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eeX-GT-Xf3">
+                                <rect key="frame" x="276" y="110" width="49" height="30"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submitClick:" destination="eC6-l0-NN2" eventType="touchUpInside" id="QHq-Tt-xSF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eeX-GT-Xf3" firstAttribute="centerX" secondItem="ZJj-5d-a8m" secondAttribute="centerX" id="EW9-id-n1C"/>
+                            <constraint firstItem="eeX-GT-Xf3" firstAttribute="top" secondItem="JNC-KT-UpY" secondAttribute="bottom" constant="8" id="O8B-wQ-c9M"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="HGq-MN-y6p" secondAttribute="leading" id="PQv-La-5wO"/>
+                            <constraint firstItem="HGq-MN-y6p" firstAttribute="centerY" secondItem="JNC-KT-UpY" secondAttribute="centerY" id="alx-Ax-dv0"/>
+                            <constraint firstItem="JNC-KT-UpY" firstAttribute="leading" secondItem="HGq-MN-y6p" secondAttribute="trailing" constant="8" id="cUb-E2-n9a"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JNC-KT-UpY" secondAttribute="trailing" id="dW3-BX-MRq"/>
+                            <constraint firstItem="JNC-KT-UpY" firstAttribute="top" secondItem="HRW-gx-9pc" secondAttribute="bottom" constant="8" id="l1X-zw-oSL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="JNC-KT-UpY" id="PBo-tl-bG9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pOv-En-CqT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2661" y="863"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Bon-fK-B6H">

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BC3130001C97249A002F3C2F /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC312FFF1C97249A002F3C2F /* AccountViewController.swift */; };
+		BC3130021C9728AC002F3C2F /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3130011C9728AC002F3C2F /* ResetPasswordViewController.swift */; };
 		BCC51E831C96306D00782FF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51E821C96306D00782FF2 /* AppDelegate.swift */; };
 		BCC51E851C96306D00782FF2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51E841C96306D00782FF2 /* ViewController.swift */; };
 		BCC51E881C96306D00782FF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCC51E861C96306D00782FF2 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		BC312FFF1C97249A002F3C2F /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		BC3130011C9728AC002F3C2F /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		BCC51E7F1C96306D00782FF2 /* LoginNode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginNode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCC51E821C96306D00782FF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCC51E841C96306D00782FF2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,11 +64,12 @@
 			children = (
 				BCC51E821C96306D00782FF2 /* AppDelegate.swift */,
 				BCC51E841C96306D00782FF2 /* ViewController.swift */,
-				BCC51E861C96306D00782FF2 /* Main.storyboard */,
+				BC3130011C9728AC002F3C2F /* ResetPasswordViewController.swift */,
 				BC312FFF1C97249A002F3C2F /* AccountViewController.swift */,
 				BCC51E971C966EC100782FF2 /* LoginViewController.swift */,
-				BCC51E8C1C96306D00782FF2 /* Assets.xcassets */,
+				BCC51E861C96306D00782FF2 /* Main.storyboard */,
 				BCC51E8E1C96306D00782FF2 /* LaunchScreen.storyboard */,
+				BCC51E8C1C96306D00782FF2 /* Assets.xcassets */,
 				BCC51E911C96306D00782FF2 /* Info.plist */,
 				BCC51E891C96306D00782FF2 /* LoginNode.xcdatamodeld */,
 			);
@@ -147,6 +150,7 @@
 				BCC51E981C966EC100782FF2 /* LoginViewController.swift in Sources */,
 				BC3130001C97249A002F3C2F /* AccountViewController.swift in Sources */,
 				BCC51E851C96306D00782FF2 /* ViewController.swift in Sources */,
+				BC3130021C9728AC002F3C2F /* ResetPasswordViewController.swift in Sources */,
 				BCC51E831C96306D00782FF2 /* AppDelegate.swift in Sources */,
 				BCC51E8B1C96306D00782FF2 /* LoginNode.xcdatamodeld in Sources */,
 			);
