@@ -33,6 +33,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="xnh-rs-NDd"/>
+                    <connections>
+                        <outlet property="loginButton" destination="dl0-tR-h5b" id="ubL-vY-0eo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -154,6 +157,7 @@
                     </view>
                     <connections>
                         <outlet property="passwordTextField" destination="scQ-3N-MnW" id="dyI-kj-Dsg"/>
+                        <outlet property="signInButton" destination="Oe0-A6-Cbv" id="5OL-d0-XFq"/>
                         <outlet property="usernameTextField" destination="N60-IC-z1h" id="DLk-gS-B2E"/>
                     </connections>
                 </viewController>
