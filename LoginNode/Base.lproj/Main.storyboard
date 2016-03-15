@@ -25,11 +25,20 @@
                                     <segue destination="lm5-Ec-ga4" kind="show" identifier="ShowLoginView" id="uMC-yi-bd7"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnh-6d-q42">
+                                <rect key="frame" x="276" y="323" width="48" height="30"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s23-ln-Lz6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dl0-tR-h5b" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PGM-LJ-hEC"/>
                             <constraint firstItem="dl0-tR-h5b" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="bdF-6D-rDf"/>
+                            <constraint firstItem="vnh-6d-q42" firstAttribute="top" secondItem="dl0-tR-h5b" secondAttribute="bottom" constant="8" id="gDA-Hc-ek1"/>
+                            <constraint firstItem="vnh-6d-q42" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vSp-Yp-1HF"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="xnh-rs-NDd"/>
@@ -130,7 +139,6 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" title="Create Account"/>
                                         <connections>
-                                            <action selector="createAccountClick:" destination="lm5-Ec-ga4" eventType="touchUpInside" id="UXq-c2-Gbu"/>
                                             <segue destination="YML-dH-Gzk" kind="show" identifier="ShowCreateAccountScene" id="HnM-mw-P5y"/>
                                         </connections>
                                     </button>
@@ -262,6 +270,7 @@
                         <outlet property="emailTextField" destination="dSl-3h-5U7" id="zqp-Ib-PEK"/>
                         <outlet property="nameTextField" destination="EXM-8f-lbH" id="4tX-fe-jZR"/>
                         <outlet property="passwordTextField" destination="GU6-T4-OEK" id="WzV-ZP-y5g"/>
+                        <outlet property="submitButton" destination="nlG-9P-oeq" id="DdC-G3-xnG"/>
                         <outlet property="usernameTextField" destination="A3M-F4-MyD" id="77V-kd-UdG"/>
                     </connections>
                 </viewController>

@@ -73,7 +73,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     do {
                         json_data = try NSJSONSerialization.JSONObjectWithData(data!, options: [NSJSONReadingOptions.MutableContainers]) as? NSMutableArray
                         if json_data != nil {
-                            success = true
+                            print( "manual json data :", json_data)
+                            if let jd = json_data![0]["login"] as? Bool {
+                                print( "json return from / :", jd)
+                                if jd == true {
+                                    success = true
+                                }
+                            }
                         }
                     } catch let e {
                         print( "json_data threw exception:", e)
@@ -81,7 +87,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     dispatch_async(dispatch_get_main_queue()){
                         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
                         if success == true {
-                            let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
                             prefs.setValue( self.usernameTextField.text, forKey: "username")
                         } else {
                             prefs.setNilValueForKey( "username")
@@ -113,9 +118,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func forgotPasswordClick(sender: UIButton) {
-    }
-    
-    @IBAction func createAccountClick(sender: UIButton) {
     }
     
     // MARK: text field delegate

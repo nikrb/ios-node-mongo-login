@@ -24,16 +24,22 @@ class ViewController: UIViewController {
             if error != nil {
                 print(error)
             } else {
-                var success = true
+                var success = false
+                var json_data : NSMutableArray?
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
                     do {
-                        if let json_data = try NSJSONSerialization.JSONObjectWithData(data!, options: [NSJSONReadingOptions.MutableContainers]) as? NSMutableArray {
-                            print( "json return from / :", json_data)
-                        } else {
-                            success = false
+                        json_data = try NSJSONSerialization.JSONObjectWithData(data!, options: [NSJSONReadingOptions.MutableContainers]) as? NSMutableArray
+                        if json_data != nil {
+                            print( "json data :", json_data)
+                            if let jd = json_data![0]["login"] as? Bool {
+                                print( "json return from / :", jd)
+                                if jd == true {
+                                    success = true
+                                }
+                            }
                         }
                     } catch {
-                        success = false
+                        print( "login failed")
                     }
                     dispatch_async(dispatch_get_main_queue()){
                         print( "@login success [\(success)]")
@@ -52,6 +58,59 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func logoutClick(sender: UIButton) {
+        do{
+            try attemptLogout()
+        } catch _{
+            print( "attempt logout failed")
+        }
+    }
+
+    func attemptLogout() throws {
+        print( "attempting login")
+        let params = Dictionary<String,String>()
+        let url = NSURL(string: "https://node-template-knik.c9users.io/logout")
+        let request = NSMutableURLRequest(URL: url!)
+        request.HTTPMethod = "POST"
+        
+        // TODO: don't seem to need this
+        // request.setValue(postLength, forHTTPHeaderField: "Content-Length")
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        
+        
+        request.HTTPBody = try NSJSONSerialization.dataWithJSONObject( params, options: [])
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
+            if error != nil {
+                print(error)
+            } else {
+                var success = false
+                var json_data : NSMutableArray?
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
+                    do {
+                        json_data = try NSJSONSerialization.JSONObjectWithData(data!, options: [NSJSONReadingOptions.MutableContainers]) as? NSMutableArray
+                        if json_data != nil {
+                            print( "manual json data :", json_data)
+                            if let jd = json_data![0]["logout"] as? Bool {
+                                print( "json return from / :", jd)
+                                if jd == true {
+                                    success = true
+                                }
+                            }
+                        }
+                    } catch let e {
+                        print( "json_data threw exception:", e)
+                    }
+                    dispatch_async(dispatch_get_main_queue()){
+                        if success == true {
+                            print( "logout success")
+                        }
+                    }
+                })
+            }
+        }
+        task.resume()
+    }
 
 }
 
