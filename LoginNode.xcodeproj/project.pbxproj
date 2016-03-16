@@ -16,6 +16,7 @@
 		BCC51E8D1C96306D00782FF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCC51E8C1C96306D00782FF2 /* Assets.xcassets */; };
 		BCC51E901C96306D00782FF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCC51E8E1C96306D00782FF2 /* LaunchScreen.storyboard */; };
 		BCC51E981C966EC100782FF2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51E971C966EC100782FF2 /* LoginViewController.swift */; };
+		BCEB238E1C98EDA500C64E3F /* api.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEB238D1C98EDA500C64E3F /* api.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		BCC51E8F1C96306D00782FF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BCC51E911C96306D00782FF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCC51E971C966EC100782FF2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BCEB238D1C98EDA500C64E3F /* api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = api.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				BC3130011C9728AC002F3C2F /* ResetPasswordViewController.swift */,
 				BC312FFF1C97249A002F3C2F /* AccountViewController.swift */,
 				BCC51E971C966EC100782FF2 /* LoginViewController.swift */,
+				BCEB238D1C98EDA500C64E3F /* api.swift */,
 				BCC51E861C96306D00782FF2 /* Main.storyboard */,
 				BCC51E8E1C96306D00782FF2 /* LaunchScreen.storyboard */,
 				BCC51E8C1C96306D00782FF2 /* Assets.xcassets */,
@@ -152,6 +155,7 @@
 				BCC51E851C96306D00782FF2 /* ViewController.swift in Sources */,
 				BC3130021C9728AC002F3C2F /* ResetPasswordViewController.swift in Sources */,
 				BCC51E831C96306D00782FF2 /* AppDelegate.swift in Sources */,
+				BCEB238E1C98EDA500C64E3F /* api.swift in Sources */,
 				BCC51E8B1C96306D00782FF2 /* LoginNode.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

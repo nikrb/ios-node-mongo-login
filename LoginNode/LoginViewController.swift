@@ -45,6 +45,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    func loginComplete( json_data : NSMutableArray){
+        let jd = json_data[0]["login"] as! Bool
+        if jd == true {
+            print( "logged in ok")
+        } else {
+            print( "login failed")
+        }
+    }
    
     func attemptLogin() throws {
         print( "attempting login")
@@ -52,50 +60,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         "pass": passwordTextField.text!,
                         "remember-me" : remember_me
                     ] as Dictionary<String,String>
-        let url = NSURL(string: "https://node-template-knik.c9users.io/")
-        let request = NSMutableURLRequest(URL: url!)
-        request.HTTPMethod = "POST"
-
-        // TODO: don't seem to need this
-        // request.setValue(postLength, forHTTPHeaderField: "Content-Length")
-        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-        request.setValue("application/json", forHTTPHeaderField: "Accept")
-
-        
-        request.HTTPBody = try NSJSONSerialization.dataWithJSONObject( params, options: [])
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
-            if error != nil {
-                print(error)
-            } else {
-                var success = false
-                var json_data : NSMutableArray?
-                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
-                    do {
-                        json_data = try NSJSONSerialization.JSONObjectWithData(data!, options: [NSJSONReadingOptions.MutableContainers]) as? NSMutableArray
-                        if json_data != nil {
-                            print( "manual json data :", json_data)
-                            if let jd = json_data![0]["login"] as? Bool {
-                                print( "json return from / :", jd)
-                                if jd == true {
-                                    success = true
-                                }
-                            }
-                        }
-                    } catch let e {
-                        print( "json_data threw exception:", e)
-                    }
-                    dispatch_async(dispatch_get_main_queue()){
-                        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-                        if success == true {
-                            prefs.setValue( self.usernameTextField.text, forKey: "username")
-                        } else {
-                            prefs.setNilValueForKey( "username")
-                        }
-                    }
-                })
-            }
-        }
-        task.resume()
+        let url = "https://node-template-knik.c9users.io/"
+        try api.performRequest( url, method: "POST", params: params, callback: loginComplete)
     }
     
     // MARK: Actions
@@ -115,9 +81,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             sender.setTitle( "\u{2610} Remember Me", forState: .Normal)
             remember_me = "false"
         }
-    }
-    
-    @IBAction func forgotPasswordClick(sender: UIButton) {
     }
     
     // MARK: text field delegate

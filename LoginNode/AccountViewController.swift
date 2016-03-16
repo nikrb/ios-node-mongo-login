@@ -57,7 +57,11 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func attemptSignup() throws {
+    func signupComplete( json_data : NSMutableArray) {
+        
+    }
+    
+    func attemptSignup( ) throws {
         print( "attempting sign up")
         let params = [
             "name": nameTextField.text!,
@@ -65,50 +69,8 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
             "user": usernameTextField.text!,
             "pass": passwordTextField.text!
             ] as Dictionary<String,String>
-        let url = NSURL(string: "https://node-template-knik.c9users.io/signup")
-        let request = NSMutableURLRequest(URL: url!)
-        request.HTTPMethod = "PUT"
-        
-        // TODO: don't seem to need this
-        // request.setValue(postLength, forHTTPHeaderField: "Content-Length")
-        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-        request.setValue("application/json", forHTTPHeaderField: "Accept")
-        
-        
-        request.HTTPBody = try NSJSONSerialization.dataWithJSONObject( params, options: [])
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
-            if error != nil {
-                print(error)
-            } else {
-                var success = false
-                var json_data : NSMutableArray?
-                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
-                    do {
-                        json_data = try NSJSONSerialization.JSONObjectWithData(data!, options: [NSJSONReadingOptions.MutableContainers]) as? NSMutableArray
-                        if json_data != nil {
-                            print( "signup json data :", json_data)
-                            if let jd = json_data![0]["signup"] as? Bool {
-                                print( "json return from / :", jd)
-                                if jd == true {
-                                    success = true
-                                }
-                            }
-                        }
-                    } catch let e {
-                        print( "json_data threw exception:", e)
-                    }
-                    dispatch_async(dispatch_get_main_queue()){
-                        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-                        if success == true {
-                            prefs.setValue( self.usernameTextField.text, forKey: "username")
-                        } else {
-                            // prefs.setNilValueForKey( "username")
-                        }
-                    }
-                })
-            }
-        }
-        task.resume()
+        let url = "https://node-template-knik.c9users.io/signup"
+        try api.performRequest(url, method: "PUT", params: params, callback: signupComplete)
     }
 
 

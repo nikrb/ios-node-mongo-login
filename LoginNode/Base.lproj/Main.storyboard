@@ -120,10 +120,6 @@
                                         <rect key="frame" x="0.0" y="0.0" width="101" height="27"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" title="Forgot Password?"/>
-                                        <connections>
-                                            <action selector="forgotPasswordClick:" destination="lm5-Ec-ga4" eventType="touchUpInside" id="f83-3w-3lo"/>
-                                            <segue destination="eC6-l0-NN2" kind="show" identifier="ShowPasswordResetScene" id="UCz-oa-0Zj"/>
-                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXD-p4-gJm">
                                         <rect key="frame" x="101" y="0.0" width="73" height="27"/>
